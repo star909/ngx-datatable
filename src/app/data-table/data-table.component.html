@@ -1,0 +1,15 @@
+<!--Creating data table with necessary data-->
+<table class="dataTable">
+<tr>
+<th>Date</th>
+<th>Source</th>
+<th>Destination</th>
+<th>Information</th>
+</tr>
+<tr *ngFor="let data of jsonData">
+<td>{{data.ts | date: 'dd/MM/yyyy h:mm:ss a'}}</td>
+<td>{{data.s}}</td>
+<td>{{data.d}}</td>
+<td>{{data.o}}</td>
+</tr>
+</table>
