@@ -1,3 +1,8 @@
+<div class="row">
+<input type="text" placeholder="Search" [(ngModel)] ="searchText">
+</div>
+
+
 <!--Creating data table with necessary data-->
 <table class="dataTable">
 <tr>
@@ -5,11 +10,16 @@
 <th>Source</th>
 <th>Destination</th>
 <th>Information</th>
+<th>Rule</th>
+<th><button type="button">Hex</button></th>
 </tr>
-<tr *ngFor="let data of jsonData">
+<tr *ngFor="let data of jsonData |filter:searchText;">
 <td>{{data.ts | date: 'dd/MM/yyyy h:mm:ss a'}}</td>
 <td>{{data.s}}</td>
 <td>{{data.d}}</td>
 <td>{{data.o}}</td>
+<td>{{data.rule}}</td>
+<td *ngFor="let asci of data.data">{{asci.hex}}</td>
+
 </tr>
 </table>
